@@ -1,11 +1,8 @@
 #!/bin/bash
-project="FAAS"
+. "$(pwd)/.xgit_config"
+
 branch_name=$(git symbolic-ref -q HEAD)
 branch_name=${branch_name##refs/heads/}
 branch_name=${branch_name:-HEAD}
 jira_id=$(expr "$branch_name" : "[a-z]*/\($project-[0-9][0-9][0-9]\)")
 git commit -a -m "$jira_id $1"
-
-. "$(pwd)/.xgit_config"
-
-echo "$slug"
