@@ -5,8 +5,8 @@ A couple of command tools for managing git commits and branches following a spec
 1. Add the `xgit` script to you PATH
 1. Create the `.xgit_config` file in your project root
 1. Update the variables:
-  - `project`: add your Jira project slug. EG: GFH
-  - `slug`: this is simply the `feature/` slug and can be ignored unless you'd like to change it to `feat/` as default
+    - `project`: add your Jira project slug. EG: GFH
+    - `slug`: this is simply the `feature/` slug and can be ignored unless you'd like to change it to `feat/` as default
 1. Add `.xgit_config` to your `.gitignore` file.
 
 ## Available Tools & Usage:
