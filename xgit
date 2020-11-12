@@ -19,11 +19,14 @@ case "$1" in
   "branch")
     branch "$@"
     ;;
-  "new_branch")
+  "b")
     branch "$@"
     ;;
   "commit")
     commit "$@"
     ;;
-  *) echo "No such command exists"
+  "c")
+    commit "$@"
+    ;;
+  *) printf "XGit CLI:\n\nAvailable commands: \n 1: branch (alias: b) \n 2: commit (alias: c)\n"
 esac
