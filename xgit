@@ -19,6 +19,9 @@ case "$1" in
   "branch")
     branch "$@"
     ;;
+  "new_branch")
+    branch "$@"
+    ;;
   "commit")
     commit "$@"
     ;;
