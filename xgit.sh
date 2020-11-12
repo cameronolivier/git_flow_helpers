@@ -18,9 +18,7 @@ function commit() {
 if [ "$1" = "branch" ]
 then
   branch "$@"
-fi
-
-if [ "$1" = "commit" ]
+elif [ "$1" = "commit" ]
 then
   commit "$@"
 fi
