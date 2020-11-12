@@ -1,0 +1,32 @@
+#!/bin/bash
+. "$(pwd)/.xgit_config"
+
+function branch() {
+  name=${3// /_}
+  branch_name="$slug$project-$2_$name"
+  git checkout -b "$branch_name"
+}
+
+function commit() {
+  branch_name=$(git symbolic-ref -q HEAD)
+  branch_name=${branch_name##refs/heads/}
+  branch_name=${branch_name:-HEAD}
+  jira_id=$(expr "$branch_name" : "[a-z]*/\($project-[0-9][0-9][0-9]\)")
+  git commit -a -m "$jira_id $2"
+}
+
+case "$1" in
+  "branch")
+    branch "$@"
+    ;;
+  "b")
+    branch "$@"
+    ;;
+  "commit")
+    commit "$@"
+    ;;
+  "c")
+    commit "$@"
+    ;;
+  *) printf "XGit CLI:\n\nAvailable commands: \n 1: branch (alias: b) \n 2: commit (alias: c)\n"
+esac
