@@ -15,10 +15,20 @@ function commit() {
   git commit -a -m "$jira_id $2"
 }
 
-if [ "$1" = "branch" ]
-then
-  branch "$@"
-elif [ "$1" = "commit" ]
-then
-  commit "$@"
-fi
+case "$1" in
+  "branch")
+    branch "$@"
+    ;;
+  "commit")
+    commit "$@"
+    ;;
+  *) echo "No such command exists"
+esac
+
+#if [ "$1" = "branch" ]
+#then
+#  branch "$@"
+#elif [ "$1" = "commit" ]
+#then
+#  commit "$@"
+#fi
