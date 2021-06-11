@@ -31,7 +31,7 @@ Given a task of `PROJ-123`
  xgit b 123 "a unique task"
 ```
 Will result in checking out the following branch:
-```shellgs
+```shell
  feature/PROJ-123_a_unique_task
 ```
 Or, if your `slug` value is an empty string:
