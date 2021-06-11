@@ -1,5 +1,6 @@
 #!/bin/bash
-. "$(pwd)/.xgit_config"
+# shellcheck source=./.xgitconfig
+. "$(pwd)/.xgitconfig"
 
 function branch() {
   name=${3// /_}
