@@ -15,6 +15,24 @@ A couple of command tools for managing git commits and branches following a spec
 
 ## Available Tools & Usage:
 
+### Check out a branch
+This allows you to check out a branch with search param
+
+#### Command: 'checkout' or 'x':
+```shell
+ xgit x <commit message>
+```
+#### Example:
+Given a branch `feature/PROJ-123_your_feature_branch`, you can now easily check it out by just passing the ticket number
+```shell
+ xgit x 123
+```
+Will result in the following git command being run:
+```shell
+ git checkout feature/PROJ-123_your_feature_branch
+```
+
+
 ### Create Branch
 It's designed to assist with creating branches that follow the git flow method along with Jira or similar integration, given a Jira project code of `PROJ`, it would create a branch of shape: 
 ```shell
@@ -39,7 +57,7 @@ Or, if your `slug` value is an empty string:
  PROJ-123_a_unique_task
 ```
 
-### Commiting work
+### Committing work
 This tries to solve a specific problem of injecting the task name into every commit. Under the hood it calls `git commit -a -m`. Will result in a command that looks something like: 
 ```shell
  git commit -a -m "PROJ-123 feat(xgit): completed the unique task"

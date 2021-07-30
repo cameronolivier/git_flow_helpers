@@ -17,8 +17,8 @@ function commit() {
 }
 
 function checkout() {
-  branch=$(git branch --all | grep -i -m1 $2)
-  git checkout "branch"
+  branch=$(git branch --all | grep -i -m1 $2 | xargs)
+  git checkout "$branch"
 }
 
 case "$1" in
@@ -41,6 +41,6 @@ case "$1" in
     checkout "$@"
     ;;
 
-  *) printf "XGit CLI:\n\nAvailable commands: \n 1: branch (alias: b) \n 2: commit (alias: c) \n 3: checkout (alias:
-  x)\n"
+  *) printf "XGit CLI:\n\nAvailable commands: \n 1: branch (alias: b) \n 2: commit (alias: c) \n 3: checkout (alias: x)
+  \n"
 esac
