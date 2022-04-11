@@ -59,7 +59,8 @@ Will result in the following commit message:
 ```
 
 ### Checking out a branch
-**TODO: flesh this out a bit better**
+_**TODO: flesh this out a bit better**_
+
 You are now able to checkout a branch (so long as you've checked it out before) using: 
 ```shell
 xgit x <fuzzy search>
