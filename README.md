@@ -39,7 +39,7 @@ Or, if your `slug` value is an empty string:
  PROJ-123_a_unique_task
 ```
 
-### Commiting work
+### Committing work
 This tries to solve a specific problem of injecting the task name into every commit. Under the hood it calls `git commit -a -m`. Will result in a command that looks something like: 
 ```shell
  git commit -a -m "PROJ-123 feat(xgit): completed the unique task"
@@ -58,3 +58,16 @@ Will result in the following commit message:
  git commit -a -m "PROJ-123 feat(xgit): finished a unique task"
 ```
 
+### Checking out a branch
+**TODO: flesh this out a bit better**
+You are now able to checkout a branch (so long as you've checked it out before) using: 
+```shell
+xgit x <fuzzy search>
+```
+#### Example: 
+If you had a branch `feat/JIRA-123_some_work`, you can check it out without having to type through the `feat/JIRA-` 
+before autocomplete would kick in. Just do this and you'll check out the branch
+```shell
+xgit x 123
+```
+#### CAVEAT: This will always check out the first branch to match the pattern, so ensure you're searching with a unique term to check out the expected branch  
