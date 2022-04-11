@@ -16,6 +16,11 @@ function commit() {
   git commit -a -m "$jira_id $2"
 }
 
+function checkout() {
+  branch=$(git branch --all | grep -i -m1 $2 | xargs)
+  git checkout "$branch"
+}
+
 case "$1" in
   "branch")
     branch "$@"
@@ -29,5 +34,19 @@ case "$1" in
   "c")
     commit "$@"
     ;;
-  *) printf "XGit CLI:\n\nAvailable commands: \n 1: branch (alias: b) \n 2: commit (alias: c)\n"
+  "checkout")
+    checkout "$@"
+    ;;
+  "x")
+    checkout "$@"
+    ;;
+
+  *) printf "
+XGit CLI:\n
+Available commands:
+  1: [b/branch] - create branch
+  2: [c/commit] - create a commit
+  3: [x/checkout] - checkout a branch
+  \nFor more help, see the readme at: https://github.com/cameronolivier/git_flow_helpers
+  \n"
 esac
