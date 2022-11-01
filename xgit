@@ -1,7 +1,9 @@
 #!/bin/bash
 # shellcheck source=./.xgitconfig
-. "$(pwd)/.xgitconfig"
-
+if ! . "$(pwd)/.xgitconfig" 2>/dev/null
+then
+    echo 'NOTE: .xgitconfig not found. Please add .xgitconfig to your project root to complete setup.'
+fi
 function branch() {
   name=${3// /_}
   branch_name="$slug$project-$2_$name"
